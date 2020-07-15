@@ -1,0 +1,17 @@
+{
+  "b2badmin": {
+    "name": "B2B Admin",
+    "produtos": {
+      "name": "Produtos",
+      "listagem_de_produtos": {
+        "name": "Listagem de produtos",
+        "043": "Filtros",
+        "045": "Grid",
+        "046": "Ações"
+      },
+      "049": "Exportar produtos"
+    },
+    "050": "Barra do HUB",
+    "052": "Seleção da BU"
+  }
+}

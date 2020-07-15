@@ -1,0 +1,5 @@
+[credentials]
+url=https://qayandeh.testrail.net
+email=
+key=
+verify_ssl=True

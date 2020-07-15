@@ -1,0 +1,39 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytest="==5.4.3"
+selenium="==3.141.0"
+pytest-selenium="==1.17.0"
+webdriver-manager="==2.3.0"
+gherkin-official="==4.1.3"
+selene="==2.0.0a28"
+pytest-xdist="==1.32.0"
+requests="==2.23.0"
+pytest-env="==0.6.2"
+Faker="==4.0.0"
+PyYAML="==5.3"
+Appium-Python-Client="==0.51"
+pylint="*"
+psycopg2-binary="==2.8.5"
+pandas="==1.0.4"
+pyarrow="==0.17.1"
+#fastparquet="==0.4.0"
+boto3="==1.13.26"
+Naked="==0.1.31"
+urllib3 = "*"
+# pytest-bdd different from official repository due to of 2 features:
+# attach screenshot on json result and pass datatable on step definition
+pytest-bdd = {git = "https://github.com/robsonpolicarpo/pytest-bdd.git",editable = true,ref = "master"}
+pytest-testrail-plugin = {git = "https://github.com/robsonpolicarpo/pytest-testrail-plugin.git",editable = true,ref = "master"}
+iniconfig = "*"
+
+[dev-packages]
+
+[requires]
+python_version="3.8"
+
+[pipenv]
+allow_prereleases=true

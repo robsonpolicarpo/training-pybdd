@@ -1,0 +1,39 @@
+version: 2.0
+
+#orbs:
+#  python: circleci/python@0.2.1
+
+jobs:
+  integration-tests:
+    description:
+      Run integration test on browser.
+    docker:
+      - image: circleci/python:3.8.0-node-browsers
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+      - image: selenium/standalone-chrome:3.141.59-iron
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies, awscli and reportjs
+          command: |
+            sudo apt-get -y update
+            sudo apt-get install awscli -y
+            pip install pipenv
+            pipenv install
+            yarn add multiple-cucumber-html-reporter
+      - run:
+          name: Run Tests
+          command: |
+            pipenv run python -m pytest -n=3 -k 'b2badmin and automated' --aws-key=${AWS_KEY} --aws-secret=${AWS_SECRET}  --remote='true' --ipenv='localhost' --headless=true --tb=short --cucumberjson='./test-results/json/result.json' --cucumberjson-expanded
+      - store_artifacts:
+          path: test-results
+          destination: test-results
+
+workflows:
+  version: 2
+  run_e2e_tests:
+    jobs:
+      - integration-tests:
+          type: approval
+
